@@ -178,12 +178,11 @@ function updateHighScore(){
         highScore = currentScore;
         highScoreText.textContent = highScore.toString().padStart(3, '0');
     }
-    
+
     highScoreText.style.display = 'block';
 }
 
 function stopGame(){
-    console.log('Inside')
     clearInterval(gameInterval);
     gameStarted = false;
     instructionText.style.display = 'block';
@@ -191,3 +190,5 @@ function stopGame(){
 }
 
 document.addEventListener('keydown', handleKeyPress);
+
+//need to add blink to show how game is over and speed issues after each time food is eaten 
