@@ -10,7 +10,7 @@ const gridSize = 20;
 let food = generateFood();
 let direction = 'right';
 let gameInterval;
-let gameSpeedDelay= 200;
+let gameSpeedDelay= 275;
 let gameStarted = false;
 let highScore = 0;
 
@@ -153,7 +153,10 @@ function checkCollision(){
 }
 
 function increaseSpeed(){
-    return true;
+    if(gameSpeedDelay >= 60){
+        gameSpeedDelay -= 2.5;
+    }
+    return gameSpeedDelay;
 }
 
 function resetGame(){
@@ -162,7 +165,7 @@ function resetGame(){
     snake = [{ x: 10, y: 10}];
     food = generateFood();
     direction = 'right';
-    gameSpeedDelay = 200;
+    gameSpeedDelay = 275;
     updateScore();
 }
 
@@ -191,4 +194,4 @@ function stopGame(){
 
 document.addEventListener('keydown', handleKeyPress);
 
-//need to add blink to show how game is over and speed issues after each time food is eaten 
+//need to add blink to show how game is over
